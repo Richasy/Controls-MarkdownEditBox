@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{222C4468-7A38-4155-A101-3F39742D3E39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarkdownEditBox</RootNamespace>
+    <AssemblyName>Markdown-Edit-Box</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Editor\Args\EditorExcuteFailedEventArgs.cs" />
+    <Compile Include="Editor\Args\EditorExcuteSuccessEventArgs.cs" />
+    <Compile Include="Editor\MarkdownEditBox.cs" />
+    <Compile Include="Editor\MarkdownEditBox.Events.cs" />
+    <Compile Include="Editor\MarkdownEditBox.Methods.cs" />
+    <Compile Include="Editor\MarkdownEditBox.Properties.cs" />
+    <Compile Include="Enums\EditorDisplayMode.cs" />
+    <Compile Include="Enums\InvokeScriptTargetType.cs" />
+    <Compile Include="Enums\LineNumberMode.cs" />
+    <Compile Include="Enums\MinimapShowMode.cs" />
+    <Compile Include="Enums\MinimapSideMode.cs" />
+    <Compile Include="Enums\RenderLineHighlightMode.cs" />
+    <Compile Include="Enums\ScrollbarDisplayMode.cs" />
+    <Compile Include="Enums\WebScriptErrorType.cs" />
+    <Compile Include="Enums\WebScriptNotifyType.cs" />
+    <Compile Include="Models\DisplayOptions.cs" />
+    <Compile Include="Models\EditorOptions.cs" />
+    <Compile Include="Models\WebScriptPackage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Markdown_Edit_Box.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.10</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Editor\HTML\css.worker.js" />
+    <Content Include="Editor\HTML\css\app.css" />
+    <Content Include="Editor\HTML\css\chunk-vendors.css" />
+    <Content Include="Editor\HTML\editor.worker.js" />
+    <Content Include="Editor\HTML\favicon.ico" />
+    <Content Include="Editor\HTML\html.worker.js" />
+    <Content Include="Editor\HTML\index.html" />
+    <Content Include="Editor\HTML\json.worker.js" />
+    <Content Include="Editor\HTML\js\app.js" />
+    <Content Include="Editor\HTML\js\chunk-0b65ffb6.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0a3577.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0a43df.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0aa90c.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0aab07.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0abc00.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0ae937.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0aeb45.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0af08c.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0afa49.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0b2762.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0b6187.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0ba136.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0bb267.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0bcec1.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0bdf38.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0bff92.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0c0494.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0c0a09.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0c4313.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0c46d1.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0c512b.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0cf16e.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0d056d.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0d0645.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0d61fd.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0d7e63.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0e1b57.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0e1fbe.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0e22d6.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0e542a.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0e57ec.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0e6553.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0e6c86.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0ea098.js" />
+    <Content Include="Editor\HTML\js\chunk-2d0f0a11.js" />
+    <Content Include="Editor\HTML\js\chunk-2d208ac5.js" />
+    <Content Include="Editor\HTML\js\chunk-2d209408.js" />
+    <Content Include="Editor\HTML\js\chunk-2d20f745.js" />
+    <Content Include="Editor\HTML\js\chunk-2d20ff23.js" />
+    <Content Include="Editor\HTML\js\chunk-2d2138c7.js" />
+    <Content Include="Editor\HTML\js\chunk-2d217e5b.js" />
+    <Content Include="Editor\HTML\js\chunk-2d21b84a.js" />
+    <Content Include="Editor\HTML\js\chunk-2d21dcd2.js" />
+    <Content Include="Editor\HTML\js\chunk-2d21f327.js" />
+    <Content Include="Editor\HTML\js\chunk-2d2214b3.js" />
+    <Content Include="Editor\HTML\js\chunk-2d221799.js" />
+    <Content Include="Editor\HTML\js\chunk-2d221814.js" />
+    <Content Include="Editor\HTML\js\chunk-2d221a34.js" />
+    <Content Include="Editor\HTML\js\chunk-2d22502a.js" />
+    <Content Include="Editor\HTML\js\chunk-2d226775.js" />
+    <Content Include="Editor\HTML\js\chunk-2d229411.js" />
+    <Content Include="Editor\HTML\js\chunk-2d2295e9.js" />
+    <Content Include="Editor\HTML\js\chunk-2d22c171.js" />
+    <Content Include="Editor\HTML\js\chunk-2d22c2b8.js" />
+    <Content Include="Editor\HTML\js\chunk-2d22ca58.js" />
+    <Content Include="Editor\HTML\js\chunk-2d2311f7.js" />
+    <Content Include="Editor\HTML\js\chunk-2d237ee7.js" />
+    <Content Include="Editor\HTML\js\chunk-2d238465.js" />
+    <Content Include="Editor\HTML\js\chunk-30597b4a.js" />
+    <Content Include="Editor\HTML\js\chunk-7498b54e.js" />
+    <Content Include="Editor\HTML\js\chunk-7532b3ea.js" />
+    <Content Include="Editor\HTML\js\chunk-770c7886.js" />
+    <Content Include="Editor\HTML\js\chunk-e13e4362.js" />
+    <Content Include="Editor\HTML\js\chunk-vendors.js" />
+    <Content Include="Editor\HTML\ts.worker.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Editor\HTML\fonts\codicon.ttf" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
