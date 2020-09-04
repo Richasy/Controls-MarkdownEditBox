@@ -1,9 +1,11 @@
 ﻿using MarkdownEditBox.Models;
+using Richasy.Helper.UWP;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -24,6 +26,8 @@ namespace Markdown_Editor_Sample
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private StorageFile _file;
+        private Instance _instance = new Instance("MarkdownSample");
         public MainPage()
         {
             this.InitializeComponent();
@@ -50,14 +54,60 @@ namespace Markdown_Editor_Sample
 
         }
 
-        private void MyEditor_RequestSave(object sender, EventArgs e)
+        private async void MyEditor_RequestSave(object sender, EventArgs e)
         {
-
+            await SaveFile();
         }
 
         private void MyEditor_ContentChanged(object sender, EventArgs e)
         {
+            ChangedSign.Visibility = Visibility.Visible;
+        }
 
+        private async void OpenFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MyEditor.IsEditorLoaded)
+            {
+                var file = await _instance.IO.OpenLocalFileAsync(".md");
+                if (file != null)
+                {
+                    _file = file;
+                    FileNameBlock.Text = file.DisplayName;
+                    SaveFileButton.IsEnabled = true;
+                    string content = await FileIO.ReadTextAsync(file);
+                    await MyEditor.SetMarkdownAsync(content);
+                    ChangedSign.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private async void SaveFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            await SaveFile();
+        }
+
+        private async Task SaveFile()
+        {
+            string markdown = await MyEditor.GetMarkdownAsync();
+            if (_file == null)
+            {
+
+                var file = await _instance.IO.GetSaveFileAsync(".md", "My Markdown.md", "Markdown File");
+                if (file != null)
+                {
+                    _file = file;
+                    FileNameBlock.Text = file.DisplayName;
+                }
+                else
+                    return;
+            }
+            await FileIO.WriteTextAsync(_file, markdown);
+            ChangedSign.Visibility = Visibility.Collapsed;
+        }
+
+        private void MyEditor_EditorLoaded(object sender, EventArgs e)
+        {
+            OpenFileButton.IsEnabled = true;
         }
     }
 }

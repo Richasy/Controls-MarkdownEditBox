@@ -9,10 +9,29 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <editor:MarkdownEditBox x:Name="MyEditor"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <CommandBar DefaultLabelPosition="Right">
+                <AppBarButton Label="Open File" Icon="OpenFile" x:Name="OpenFileButton"
+                          Click="OpenFileButton_Click" IsEnabled="False"/>
+                <AppBarButton Label="Save File" Icon="Save" x:Name="SaveFileButton"
+                          Click="SaveFileButton_Click"  IsEnabled="False"/>
+            </CommandBar>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center">
+                <TextBlock Text="*" VerticalAlignment="Center" Visibility="Collapsed" Margin="0,0,10,0" x:Name="ChangedSign"/>
+                <TextBlock x:Name="FileNameBlock" VerticalAlignment="Center" HorizontalAlignment="Left"
+                       FontSize="18" MaxWidth="200" TextTrimming="CharacterEllipsis"/>
+            </StackPanel>
+            
+        </Grid>
+        <editor:MarkdownEditBox x:Name="MyEditor" Grid.Row="1"
                                 IsLoadingRingActive="True"
                                 LoadingRingForeground="{ThemeResource SystemColorControlAccentBrush}"
                                 ControlLoaded="MyEditor_ControlLoaded"
+                                EditorLoaded="MyEditor_EditorLoaded"
                                 ExcuteSuccess="MyEditor_ExcuteSuccess"
                                 ExcuteFailed="MyEditor_ExcuteFailed"
                                 RequestSave="MyEditor_RequestSave"
