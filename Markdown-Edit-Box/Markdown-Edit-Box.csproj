@@ -126,7 +126,9 @@
     <Compile Include="Editor\MarkdownEditBox.Events.cs" />
     <Compile Include="Editor\MarkdownEditBox.Methods.cs" />
     <Compile Include="Editor\MarkdownEditBox.Properties.cs" />
+    <Compile Include="Enums\EditorActionType.cs" />
     <Compile Include="Enums\EditorDisplayMode.cs" />
+    <Compile Include="Enums\EditorSymbol.cs" />
     <Compile Include="Enums\InvokeScriptTargetType.cs" />
     <Compile Include="Enums\LineNumberMode.cs" />
     <Compile Include="Enums\MinimapShowMode.cs" />
@@ -136,7 +138,11 @@
     <Compile Include="Enums\WebScriptErrorType.cs" />
     <Compile Include="Enums\WebScriptNotifyType.cs" />
     <Compile Include="Models\DisplayOptions.cs" />
+    <Compile Include="Models\EditorAction.cs" />
+    <Compile Include="Models\EditorIcon.cs" />
+    <Compile Include="Models\EditorLanguageOptions.cs" />
     <Compile Include="Models\EditorOptions.cs" />
+    <Compile Include="Models\StaticExtension.cs" />
     <Compile Include="Models\WebScriptPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Markdown_Edit_Box.rd.xml" />
@@ -234,6 +240,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Editor\HTML\fonts\codicon.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\editor.ttf" />
+    <Content Include="Assets\en-US.json" />
+    <Content Include="Assets\zh-CN.json" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

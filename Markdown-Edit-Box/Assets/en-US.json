@@ -1,0 +1,78 @@
+﻿[
+  {
+    "id": "markdown-bold",
+    "text": "Bold"
+  },
+  {
+    "id": "markdown-italic",
+    "text": "Italic"
+  },
+  {
+    "id": "markdown-underline",
+    "text": "Underline"
+  },
+  {
+    "id": "markdown-strikethrough",
+    "text": "Strikethrough"
+  },
+  {
+    "id": "markdown-supscript",
+    "text": "Supscript"
+  },
+  {
+    "id": "markdown-subscript",
+    "text": "Subscript"
+  },
+  {
+    "id": "markdown-codeline",
+    "text": "Inline code"
+  },
+  {
+    "id": "markdown-pre",
+    "text": "Code block"
+  },
+  {
+    "id": "markdown-quote",
+    "text": "Quote"
+  },
+  {
+    "id": "markdown-header1",
+    "text": "Header 1"
+  },
+  {
+    "id": "markdown-header2",
+    "text": "Header 2"
+  },
+  {
+    "id": "markdown-header3",
+    "text": "Header 3"
+  },
+  {
+    "id": "markdown-header4",
+    "text": "Header 4"
+  },
+  {
+    "id": "markdown-header5",
+    "text": "Header 5"
+  },
+  {
+    "id": "markdown-header6",
+    "text": "Header 6"
+  },
+  {
+    "id": "markdown-save",
+    "text": "Save"
+  },
+  {
+    "id": "copy",
+    "text": "Copy"
+  },
+  {
+    "id": "cut",
+    "text": "Cut"
+  },
+  {
+    "id": "paste",
+    "text": "Paste"
+  }
+]

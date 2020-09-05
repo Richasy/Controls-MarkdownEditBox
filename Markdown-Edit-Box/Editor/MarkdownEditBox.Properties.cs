@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarkdownEditBox.Models;
+using System;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
@@ -49,6 +50,11 @@ namespace MarkdownEditBox.Editor
 
         public static readonly DependencyProperty LoadingRingVisibilityProperty =
             DependencyProperty.Register("LoadingRingVisibility", typeof(Visibility), typeof(MarkdownEditBox), new PropertyMetadata(Visibility.Visible));
+
+        /// <summary>
+        /// Current language configuration
+        /// </summary>
+        public EditorLanguageOptions CurrentLanguageOptions { get; private set; }
 
         /// <summary>
         /// The size of the progress ring (width and height are the same value)

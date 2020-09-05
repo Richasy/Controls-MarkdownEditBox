@@ -1,9 +1,15 @@
 ﻿using MarkdownEditBox.Enums;
 using MarkdownEditBox.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace MarkdownEditBox.Editor
 {
@@ -16,23 +22,47 @@ namespace MarkdownEditBox.Editor
         /// <param name="displayOptions">Control layout configuration</param>
         /// <param name="editorOptions">Edit module configuration</param>
         /// <param name="themeData">Initialized theme data (JSON)</param>
+        /// <param name="languages">Language configuration items passed in during initialization</param>
         /// <returns></returns>
-        public async Task Initialize(string markdown, DisplayOptions displayOptions, EditorOptions editorOptions, string themeData = "")
+        public async Task Initialize(string markdown, DisplayOptions displayOptions, EditorOptions editorOptions, string themeData = "", EditorLanguageOptions languages = null)
         {
             if (displayOptions == null || editorOptions == null)
             {
                 throw new ArgumentNullException("The incoming configuration cannot be null");
             }
+            if (languages != null)
+                CurrentLanguageOptions = languages;
             markdown = GetSafeMarkdownString(markdown);
             await InvokeScriptAsync(InvokeScriptTargetType.App, "updateDisplay", JsonConvert.SerializeObject(displayOptions));
+
             if (displayOptions.DisplayType != EditorDisplayMode.Preview)
             {
                 string editorJson = JsonConvert.SerializeObject(editorOptions);
+                EditorLoaded += Initialize_EditorLoaded;
                 await InvokeScriptAsync(InvokeScriptTargetType.Editor, "initialization", markdown, JsonConvert.SerializeObject(editorOptions), themeData);
             }
         }
 
-
+        /// <summary>
+        /// Update language configuration items
+        /// </summary>
+        /// <param name="options">Language configuration</param>
+        public void UpdateLanguageOptions(EditorLanguageOptions options)
+        {
+            if (_contextMenuFlyout == null)
+                throw new KeyNotFoundException("No popup menu item found");
+            var btns = _contextMenuFlyout.PrimaryCommands.Union(_contextMenuFlyout.SecondaryCommands).OfType<AppBarButton>();
+            foreach (var btn in btns)
+            {
+                //var btn = command as AppBarButton;
+                string id = btn.Tag.ToString();
+                var lan = options.Options.Where(p => p.Id == id).FirstOrDefault();
+                if (lan != null)
+                {
+                    btn.Label = lan.Text;
+                }
+            }
+        }
 
         /// <summary>
         /// Inject Markdown text into the editing module
@@ -184,6 +214,18 @@ namespace MarkdownEditBox.Editor
             await InvokeScriptAsync(InvokeScriptTargetType.Preview, "setCss", css);
         }
 
+        public async Task ExcuteActionAsync(EditorActionType action)
+        {
+            await ExcuteActionAsync(action.ToString());
+        }
+
+        public async Task ExcuteActionAsync(string actionId)
+        {
+            if (string.IsNullOrEmpty(actionId))
+                throw new ArgumentNullException("The parameter passed in cannot be empty");
+            await InvokeScriptAsync(InvokeScriptTargetType.Editor, "excuteAction", actionId);
+        }
+
         /// <summary>
         /// Asynchronously inject Javascript to execute scripts
         /// </summary>
@@ -239,6 +281,75 @@ namespace MarkdownEditBox.Editor
                 markdown = markdown.Replace("${", "\\$\\{");
             }
             return markdown;
+        }
+
+        private EditorIcon GetIconFromActionId(EditorActionType action)
+        {
+            EditorSymbol symbol = EditorSymbol.Text;
+            switch (action)
+            {
+                case EditorActionType.Bold:
+                    symbol = EditorSymbol.Bold;
+                    break;
+                case EditorActionType.Italic:
+                    symbol = EditorSymbol.Italic;
+                    break;
+                case EditorActionType.Underline:
+                    symbol = EditorSymbol.Underline;
+                    break;
+                case EditorActionType.Strikethrough:
+                    symbol = EditorSymbol.Strikethrough;
+                    break;
+                case EditorActionType.Supscript:
+                    symbol = EditorSymbol.Supscript;
+                    break;
+                case EditorActionType.Subscript:
+                    symbol = EditorSymbol.Subscript;
+                    break;
+                case EditorActionType.InlineCode:
+                case EditorActionType.CodeBlock:
+                    symbol = EditorSymbol.Code;
+                    break;
+                case EditorActionType.Quote:
+                    symbol = EditorSymbol.Quote;
+                    break;
+                case EditorActionType.Header1:
+                case EditorActionType.Header2:
+                case EditorActionType.Header3:
+                case EditorActionType.Header4:
+                case EditorActionType.Header5:
+                case EditorActionType.Header6:
+                    symbol = EditorSymbol.Header;
+                    break;
+                case EditorActionType.Save:
+                    symbol = EditorSymbol.Save;
+                    break;
+                case EditorActionType.Copy:
+                    symbol = EditorSymbol.Copy;
+                    break;
+                case EditorActionType.Cut:
+                    symbol = EditorSymbol.Cut;
+                    break;
+                case EditorActionType.Paste:
+                    symbol = EditorSymbol.Paste;
+                    break;
+                default:
+                    break;
+            }
+            return new EditorIcon(symbol);
+        }
+
+        private void ShowContextMenuFlyout(string positionJson)
+        {
+            var jobj = JObject.Parse(positionJson);
+            double x = Convert.ToDouble(jobj["x"].ToString());
+            double y = Convert.ToDouble(jobj["y"].ToString());
+            var options = new FlyoutShowOptions();
+            options.Position = new Windows.Foundation.Point(x, y);
+            if (_contextMenuFlyout != null)
+            {
+                _contextMenuFlyout.ShowAt(MainWebView, options);
+            }
         }
     }
 }

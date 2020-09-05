@@ -1,0 +1,78 @@
+﻿[
+  {
+    "id": "markdown-bold",
+    "text": "加粗"
+  },
+  {
+    "id": "markdown-italic",
+    "text": "斜体"
+  },
+  {
+    "id": "markdown-underline",
+    "text": "下划线"
+  },
+  {
+    "id": "markdown-strikethrough",
+    "text": "删除线"
+  },
+  {
+    "id": "markdown-supscript",
+    "text": "上标"
+  },
+  {
+    "id": "markdown-subscript",
+    "text": "下标"
+  },
+  {
+    "id": "markdown-codeline",
+    "text": "行内代码"
+  },
+  {
+    "id": "markdown-pre",
+    "text": "代码块"
+  },
+  {
+    "id": "markdown-quote",
+    "text": "引用"
+  },
+  {
+    "id": "markdown-header1",
+    "text": "一级标题"
+  },
+  {
+    "id": "markdown-header2",
+    "text": "二级标题"
+  },
+  {
+    "id": "markdown-header3",
+    "text": "三级标题"
+  },
+  {
+    "id": "markdown-header4",
+    "text": "四级标题"
+  },
+  {
+    "id": "markdown-header5",
+    "text": "五级标题"
+  },
+  {
+    "id": "markdown-header6",
+    "text": "六级标题"
+  },
+  {
+    "id": "markdown-save",
+    "text": "保存"
+  },
+  {
+    "id": "copy",
+    "text": "复制"
+  },
+  {
+    "id": "cut",
+    "text": "剪切"
+  },
+  {
+    "id": "paste",
+    "text": "粘贴"
+  }
+]
