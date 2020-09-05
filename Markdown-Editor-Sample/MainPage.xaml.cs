@@ -26,89 +26,30 @@ namespace Markdown_Editor_Sample
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private StorageFile _file;
+        
         private Instance _instance = new Instance("MarkdownSample");
         public MainPage()
         {
             this.InitializeComponent();
         }
-
-        private async void MyEditor_ControlLoaded(object sender, EventArgs e)
+        private void MyNavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            var displayOptions = DisplayOptions.CreateOptions();
-            var editorOptions = EditorOptions.CreateOptions();
-            var languageOptions = await EditorLanguageOptions.GetDefaultZhOptionsAsync();
-            editorOptions.Theme = "";
-            await MyEditor.Initialize("# Hello Markdown!", displayOptions, editorOptions, "", languageOptions);
-            var cssFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/acrmd.css"));
-            string css = await FileIO.ReadTextAsync(cssFile);
-            await MyEditor.SetPreviewStyle(css);
-        }
-
-        private void MyEditor_ExcuteSuccess(object sender, MarkdownEditBox.Editor.Args.EditorExcuteSuccessEventArgs e)
-        {
-
-        }
-
-        private void MyEditor_ExcuteFailed(object sender, MarkdownEditBox.Editor.Args.EditorExcuteFailedEventArgs e)
-        {
-
-        }
-
-        private async void MyEditor_RequestSave(object sender, EventArgs e)
-        {
-            await SaveFile();
-        }
-
-        private void MyEditor_ContentChanged(object sender, EventArgs e)
-        {
-            ChangedSign.Visibility = Visibility.Visible;
-        }
-
-        private async void OpenFileButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (MyEditor.IsEditorLoaded)
+            var item = args.InvokedItemContainer as NavigationViewItem;
+            string tag = item.Tag.ToString();
+            switch (tag)
             {
-                var file = await _instance.IO.OpenLocalFileAsync(".md");
-                if (file != null)
-                {
-                    _file = file;
-                    FileNameBlock.Text = file.DisplayName;
-                    SaveFileButton.IsEnabled = true;
-                    string content = await FileIO.ReadTextAsync(file);
-                    await MyEditor.SetMarkdownAsync(content);
-                    ChangedSign.Visibility = Visibility.Collapsed;
-                }
+                case "1":
+                    MainFrame.Navigate(typeof(Pages.Scenario1));
+                    break;
+                case "2":
+                    MainFrame.Navigate(typeof(Pages.Scenario2));
+                    break;
+                case "3":
+                    MainFrame.Navigate(typeof(Pages.Scenario3));
+                    break;
+                default:
+                    break;
             }
-        }
-
-        private async void SaveFileButton_Click(object sender, RoutedEventArgs e)
-        {
-            await SaveFile();
-        }
-
-        private async Task SaveFile()
-        {
-            string markdown = await MyEditor.GetMarkdownAsync();
-            if (_file == null)
-            {
-
-                var file = await _instance.IO.GetSaveFileAsync(".md", "My Markdown.md", "Markdown File");
-                if (file != null)
-                {
-                    _file = file;
-                    FileNameBlock.Text = file.DisplayName;
-                }
-                else
-                    return;
-            }
-            await FileIO.WriteTextAsync(_file, markdown);
-            ChangedSign.Visibility = Visibility.Collapsed;
-        }
-
-        private void MyEditor_EditorLoaded(object sender, EventArgs e)
-        {
-            OpenFileButton.IsEnabled = true;
         }
     }
 }

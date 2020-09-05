@@ -119,8 +119,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Enums\ColorNames.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Scenario1.xaml.cs">
+      <DependentUpon>Scenario1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Scenario2.xaml.cs">
+      <DependentUpon>Scenario2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Scenario3.xaml.cs">
+      <DependentUpon>Scenario3.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -149,10 +159,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\Scenario1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Scenario2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Scenario3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
+    </PackageReference>
+    <PackageReference Include="Richasy.Controls.UWP">
+      <Version>1.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Richasy.Font.UWP">
+      <Version>1.0.7</Version>
     </PackageReference>
     <PackageReference Include="Richasy.Helper.UWP">
       <Version>1.0.8</Version>
@@ -163,6 +191,9 @@
       <Project>{222c4468-7a38-4155-a101-3f39742d3e39}</Project>
       <Name>Markdown-Edit-Box</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\test.md" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -2,7 +2,7 @@
 
 namespace MarkdownEditBox.Enums
 {
-    public enum EditorDisplayMode
+    public enum EditBoxDisplayMode
     {
         /// <summary>
         /// Simultaneous display of editor and preview interface
@@ -14,12 +14,6 @@ namespace MarkdownEditBox.Enums
         /// Only Editor
         /// </summary>
         [EnumMember(Value = "editor")]
-        Editor,
-
-        /// <summary>
-        /// Only Preview
-        /// </summary>
-        [EnumMember(Value = "preview")]
-        Preview
+        Editor
     }
 }

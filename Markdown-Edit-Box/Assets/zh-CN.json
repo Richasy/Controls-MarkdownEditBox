@@ -60,19 +60,19 @@
     "text": "六级标题"
   },
   {
-    "id": "markdown-save",
+    "id": "editor-save",
     "text": "保存"
   },
   {
-    "id": "copy",
+    "id": "editor-copy",
     "text": "复制"
   },
   {
-    "id": "cut",
+    "id": "editor-cut",
     "text": "剪切"
   },
   {
-    "id": "paste",
+    "id": "editor-paste",
     "text": "粘贴"
   }
 ]

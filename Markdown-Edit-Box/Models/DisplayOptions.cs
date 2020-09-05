@@ -19,7 +19,7 @@ namespace MarkdownEditBox.Models
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         [JsonProperty("displayType")]
-        public EditorDisplayMode DisplayType { get; set; }
+        public EditBoxDisplayMode DisplayType { get; set; }
 
         /// <summary>
         /// The minimum percentage of the left panel (0 to 100)
@@ -41,7 +41,7 @@ namespace MarkdownEditBox.Models
 
         protected DisplayOptions()
         {
-            DisplayType = EditorDisplayMode.Split;
+            DisplayType = EditBoxDisplayMode.Split;
             MinPercent = 30;
             MaxPercent = 80;
             DefaultPercent = 50;
@@ -65,30 +65,21 @@ namespace MarkdownEditBox.Models
         /// </summary>
         /// <param name="displayType">Control display mode</param>
         /// <returns>Display configuration</returns>
-        public static DisplayOptions CreateOptions(EditorDisplayMode displayType)
+        public static DisplayOptions CreateOptions(EditBoxDisplayMode displayType)
         {
             DisplayOptions options = null;
             switch (displayType)
             {
-                case EditorDisplayMode.Split:
+                case EditBoxDisplayMode.Split:
                     options = new DisplayOptions();
                     break;
-                case EditorDisplayMode.Editor:
+                case EditBoxDisplayMode.Editor:
                     options = new DisplayOptions
                     {
-                        DisplayType = EditorDisplayMode.Editor,
+                        DisplayType = EditBoxDisplayMode.Editor,
                         MinPercent = 100,
                         MaxPercent = 100,
                         DefaultPercent = 100
-                    };
-                    break;
-                case EditorDisplayMode.Preview:
-                    options = new DisplayOptions
-                    {
-                        DisplayType = EditorDisplayMode.Preview,
-                        MinPercent = 0,
-                        MaxPercent = 0,
-                        DefaultPercent = 0
                     };
                     break;
                 default:
@@ -105,7 +96,7 @@ namespace MarkdownEditBox.Models
         /// <param name="maxPercent">The maxinum percentage of the left panel (0 to 100)</param>
         /// <param name="defaultPercent">The default percentage of the left panel (0 to 100)</param>
         /// <returns>Display configuration</returns>
-        public static DisplayOptions CreateOptions(EditorDisplayMode displayType, double minPercent, double maxPercent, double defaultPercent)
+        public static DisplayOptions CreateOptions(EditBoxDisplayMode displayType, double minPercent, double maxPercent, double defaultPercent)
         {
             if (minPercent > maxPercent)
                 throw new ArgumentException("The minimum value should be less than or equal to the maximum value");

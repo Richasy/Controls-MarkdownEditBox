@@ -12,22 +12,25 @@
                         <Grid.Resources>
                             <CommandBarFlyout x:Name="ContextMenuFlyout">
                                 <CommandBarFlyout.PrimaryCommands>
-                                    <AppBarButton x:Name="CopyButton" Tag="copy">
+                                    <!-- Because WebView does not support document.execCommand, cancel these buttons -->
+                                    
+                                    <!--<AppBarButton x:Name="CopyButton" Tag="editor-copy">
                                         <AppBarButton.Icon>
                                             <models:EditorIcon Symbol="Copy" FontSize="14"/>
                                         </AppBarButton.Icon>
                                     </AppBarButton>
-                                    <AppBarButton x:Name="CutButton" Tag="cut">
+                                    <AppBarButton x:Name="CutButton" Tag="editor-cut">
                                         <AppBarButton.Icon>
                                             <models:EditorIcon Symbol="Cut" FontSize="14"/>
                                         </AppBarButton.Icon>
                                     </AppBarButton>
-                                    <AppBarButton x:Name="PasteButton" Tag="paste">
+                                    <AppBarButton x:Name="PasteButton" Tag="editor-paste">
                                         <AppBarButton.Icon>
                                             <models:EditorIcon Symbol="Paste" FontSize="14"/>
                                         </AppBarButton.Icon>
-                                    </AppBarButton>
-                                    <AppBarButton x:Name="SaveButton" Tag="markdown-save">
+                                    </AppBarButton>-->
+                                    
+                                    <AppBarButton x:Name="SaveButton" Tag="editor-save">
                                         <AppBarButton.Icon>
                                             <models:EditorIcon Symbol="Save" FontSize="14"/>
                                         </AppBarButton.Icon>

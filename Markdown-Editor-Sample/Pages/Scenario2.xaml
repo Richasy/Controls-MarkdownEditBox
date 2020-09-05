@@ -1,0 +1,43 @@
+﻿<ui:RichasyPage
+    xmlns:ui="using:Richasy.Controls.UWP.Models.UI"
+    x:Class="Markdown_Editor_Sample.Pages.Scenario2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Markdown_Editor_Sample.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uwp="using:Richasy.Font.UWP" xmlns:editor="using:MarkdownEditBox.Editor"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DataTemplate x:DataType="uwp:SystemFont" x:Key="FontItemTemplate">
+            <Grid Padding="10,5">
+                <TextBlock Text="{x:Bind Name}" FontFamily="{x:Bind FontFamily}" FontSize="14"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" x:Name="ControlPanel" Visibility="Collapsed"
+                    Padding="10">
+            <ComboBox Header="Font Family" ItemTemplate="{StaticResource FontItemTemplate}"
+                      SelectionChanged="FontFamilyComboBox_SelectionChanged"  x:Name="FontFamilyComboBox"
+                      HorizontalAlignment="Left" VerticalAlignment="Center" ItemsSource="{x:Bind FontCollection}"/>
+            <Slider Header="Font Size" Minimum="12" Maximum="20" Width="100"
+                    VerticalAlignment="Center" StepFrequency="1" Value="18" ValueChanged="Slider_ValueChanged"
+                    Margin="15,0,0,0"/>
+            <ToggleSwitch Header="Open Line Number" IsOn="True" x:Name="LineNumberSwitcher"
+                          Toggled="LineNumberSwitcher_Toggled" VerticalAlignment="Center" Margin="25,0,0,0"/>
+            <ToggleSwitch Header="Open Mini Map" IsOn="False" x:Name="MinimapSwitcher"
+                          Toggled="MinimapSwitcher_Toggled" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        </StackPanel>
+        <editor:MarkdownEditBox x:Name="MyEditor" Grid.Row="1"
+                                IsLoadingRingActive="True"
+                                LoadingRingForeground="{ThemeResource SystemColorControlAccentBrush}"
+                                ControlLoaded="MyEditor_ControlLoaded"
+                                EditorLoaded="MyEditor_EditorLoaded"
+                                />
+    </Grid>
+</ui:RichasyPage>

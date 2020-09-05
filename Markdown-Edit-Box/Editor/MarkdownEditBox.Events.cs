@@ -39,6 +39,10 @@ namespace MarkdownEditBox.Editor
         /// The control requests to save the content of the document
         /// </summary>
         public event EventHandler RequestSave;
+        /// <summary>
+        /// Occurs when the proportion of editing module changes
+        /// </summary>
+        public event EventHandler<EditorResizeEventArgs> Resize;
 
         private void MainWebView_ScriptNotify(object sender, NotifyEventArgs e)
         {
@@ -72,6 +76,9 @@ namespace MarkdownEditBox.Editor
                     case WebScriptNotifyType.ContextMenu:
                         ShowContextMenuFlyout(notify.Value);
                         break;
+                    case WebScriptNotifyType.Resize:
+                        Resize?.Invoke(this, new EditorResizeEventArgs(Convert.ToDouble(notify.Value)));
+                        break;
                     default:
                         break;
                 }
@@ -96,7 +103,7 @@ namespace MarkdownEditBox.Editor
             if (!string.IsNullOrEmpty(actionJson))
             {
                 var actions = JsonConvert.DeserializeObject<List<EditorAction>>(actionJson);
-                actions = actions.Where(p => p.Id != EditorActionType.Save).ToList();
+                actions = actions.Where(p => p.Id.ToEnumString().Contains("markdown-")).ToList();
                 if (_contextMenuFlyout != null)
                 {
                     _contextMenuFlyout.SecondaryCommands.Clear();

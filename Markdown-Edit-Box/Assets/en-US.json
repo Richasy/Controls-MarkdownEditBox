@@ -60,19 +60,19 @@
     "text": "Header 6"
   },
   {
-    "id": "markdown-save",
+    "id": "editor-save",
     "text": "Save"
   },
   {
-    "id": "copy",
+    "id": "editor-copy",
     "text": "Copy"
   },
   {
-    "id": "cut",
+    "id": "editor-cut",
     "text": "Cut"
   },
   {
-    "id": "paste",
+    "id": "editor-paste",
     "text": "Paste"
   }
 ]

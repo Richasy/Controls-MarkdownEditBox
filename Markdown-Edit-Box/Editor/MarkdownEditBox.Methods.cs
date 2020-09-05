@@ -33,14 +33,27 @@ namespace MarkdownEditBox.Editor
             if (languages != null)
                 CurrentLanguageOptions = languages;
             markdown = GetSafeMarkdownString(markdown);
-            await InvokeScriptAsync(InvokeScriptTargetType.App, "updateDisplay", JsonConvert.SerializeObject(displayOptions));
+            await UpdateDisplayAsync(displayOptions);
 
-            if (displayOptions.DisplayType != EditorDisplayMode.Preview)
+            string editorJson = JsonConvert.SerializeObject(editorOptions);
+            EditorLoaded += Initialize_EditorLoaded;
+            await InvokeScriptAsync(InvokeScriptTargetType.Editor, "initialization", markdown, JsonConvert.SerializeObject(editorOptions), themeData);
+        }
+
+        /// <summary>
+        /// Update the layout mode of the control
+        /// </summary>
+        /// <param name="displayOptions">Layout configuration</param>
+        /// <returns></returns>
+        public async Task UpdateDisplayAsync(DisplayOptions displayOptions)
+        {
+            if (displayOptions == null)
             {
-                string editorJson = JsonConvert.SerializeObject(editorOptions);
-                EditorLoaded += Initialize_EditorLoaded;
-                await InvokeScriptAsync(InvokeScriptTargetType.Editor, "initialization", markdown, JsonConvert.SerializeObject(editorOptions), themeData);
+                throw new ArgumentNullException("The incoming configuration cannot be null");
             }
+
+            CurrentDisplayMode = displayOptions.DisplayType;
+            await InvokeScriptAsync(InvokeScriptTargetType.App, "updateDisplay", JsonConvert.SerializeObject(displayOptions));
         }
 
         /// <summary>
@@ -54,7 +67,6 @@ namespace MarkdownEditBox.Editor
             var btns = _contextMenuFlyout.PrimaryCommands.Union(_contextMenuFlyout.SecondaryCommands).OfType<AppBarButton>();
             foreach (var btn in btns)
             {
-                //var btn = command as AppBarButton;
                 string id = btn.Tag.ToString();
                 var lan = options.Options.Where(p => p.Id == id).FirstOrDefault();
                 if (lan != null)
@@ -214,15 +226,26 @@ namespace MarkdownEditBox.Editor
             await InvokeScriptAsync(InvokeScriptTargetType.Preview, "setCss", css);
         }
 
+        /// <summary>
+        /// Execute preset editor commands
+        /// </summary>
+        /// <param name="action">Action type</param>
+        /// <returns></returns>
         public async Task ExcuteActionAsync(EditorActionType action)
         {
-            await ExcuteActionAsync(action.ToString());
+            await ExcuteActionAsync(action.ToEnumString());
         }
 
+        /// <summary>
+        /// Execute editor commands (can be some commands that are not preset)
+        /// </summary>
+        /// <param name="actionId">Action id</param>
+        /// <returns></returns>
         public async Task ExcuteActionAsync(string actionId)
         {
             if (string.IsNullOrEmpty(actionId))
                 throw new ArgumentNullException("The parameter passed in cannot be empty");
+
             await InvokeScriptAsync(InvokeScriptTargetType.Editor, "excuteAction", actionId);
         }
 
@@ -243,24 +266,7 @@ namespace MarkdownEditBox.Editor
             {
                 parameters[i] = $"`{parameters[i]}`";
             }
-            string prefix = "";
-            switch (target)
-            {
-                case InvokeScriptTargetType.App:
-                    prefix = "window.app";
-                    break;
-                case InvokeScriptTargetType.Editor:
-                    prefix = "window.Editor";
-                    break;
-                case InvokeScriptTargetType.Preview:
-                    prefix = "window.Preview";
-                    break;
-                case InvokeScriptTargetType.Monaco:
-                    prefix = "window.Editor.mdEditor";
-                    break;
-                default:
-                    break;
-            }
+            string prefix = target.ToEnumString();
             string eval = $"{prefix}.{functionName}({string.Join(',', parameters)})";
             string result = await MainWebView.InvokeScriptAsync("eval", new string[] { eval });
             return result;
@@ -281,6 +287,15 @@ namespace MarkdownEditBox.Editor
                 markdown = markdown.Replace("${", "\\$\\{");
             }
             return markdown;
+        }
+
+        /// <summary>
+        /// Check and edit module layout (forced to refresh layout)
+        /// </summary>
+        /// <returns></returns>
+        public async Task UpdateEditorLayoutAsync()
+        {
+            await InvokeScriptAsync(InvokeScriptTargetType.Monaco, "layout");
         }
 
         private EditorIcon GetIconFromActionId(EditorActionType action)

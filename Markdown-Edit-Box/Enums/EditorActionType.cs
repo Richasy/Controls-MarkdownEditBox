@@ -49,16 +49,16 @@ namespace MarkdownEditBox.Enums
         [EnumMember(Value = "markdown-header6")]
         Header6,
 
-        [EnumMember(Value = "markdown-save")]
+        [EnumMember(Value = "editor-save")]
         Save,
 
-        [EnumMember(Value = "copy")]
+        [EnumMember(Value = "editor-copy")]
         Copy,
 
-        [EnumMember(Value = "cut")]
+        [EnumMember(Value = "editor-cut")]
         Cut,
 
-        [EnumMember(Value = "paste")]
+        [EnumMember(Value = "editor-paste")]
         Paste
     }
 }

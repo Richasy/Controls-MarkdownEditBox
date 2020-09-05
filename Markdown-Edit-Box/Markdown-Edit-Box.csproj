@@ -122,12 +122,13 @@
   <ItemGroup>
     <Compile Include="Editor\Args\EditorExcuteFailedEventArgs.cs" />
     <Compile Include="Editor\Args\EditorExcuteSuccessEventArgs.cs" />
+    <Compile Include="Editor\Args\EditorResizeEventArgs.cs" />
     <Compile Include="Editor\MarkdownEditBox.cs" />
     <Compile Include="Editor\MarkdownEditBox.Events.cs" />
     <Compile Include="Editor\MarkdownEditBox.Methods.cs" />
     <Compile Include="Editor\MarkdownEditBox.Properties.cs" />
     <Compile Include="Enums\EditorActionType.cs" />
-    <Compile Include="Enums\EditorDisplayMode.cs" />
+    <Compile Include="Enums\EditBoxDisplayMode.cs" />
     <Compile Include="Enums\EditorSymbol.cs" />
     <Compile Include="Enums\InvokeScriptTargetType.cs" />
     <Compile Include="Enums\LineNumberMode.cs" />
@@ -162,6 +163,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\editor.ttf" />
+    <Content Include="Assets\en-US.json" />
+    <Content Include="Assets\zh-CN.json" />
     <Content Include="Editor\HTML\css.worker.js" />
     <Content Include="Editor\HTML\css\app.css" />
     <Content Include="Editor\HTML\css\chunk-vendors.css" />
@@ -240,14 +244,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Editor\HTML\fonts\codicon.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\editor.ttf" />
-    <Content Include="Assets\en-US.json" />
-    <Content Include="Assets\zh-CN.json" />
+    <None Include="Markdown-Edit-Box.nuspec" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

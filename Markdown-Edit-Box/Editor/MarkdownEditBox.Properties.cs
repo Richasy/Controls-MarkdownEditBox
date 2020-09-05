@@ -1,4 +1,5 @@
-﻿using MarkdownEditBox.Models;
+﻿using MarkdownEditBox.Enums;
+using MarkdownEditBox.Models;
 using System;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -55,6 +56,8 @@ namespace MarkdownEditBox.Editor
         /// Current language configuration
         /// </summary>
         public EditorLanguageOptions CurrentLanguageOptions { get; private set; }
+
+        public EditBoxDisplayMode CurrentDisplayMode { get; set; }
 
         /// <summary>
         /// The size of the progress ring (width and height are the same value)

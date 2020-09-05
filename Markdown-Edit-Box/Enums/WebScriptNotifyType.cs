@@ -33,5 +33,8 @@ namespace MarkdownEditBox.Enums
 
         [EnumMember(Value = "contextmenu")]
         ContextMenu,
+
+        [EnumMember(Value = "resize")]
+        Resize,
     }
 }
