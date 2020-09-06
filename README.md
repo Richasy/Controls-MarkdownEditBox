@@ -54,6 +54,8 @@ private async void MyEditor_ControlLoaded(object sender, EventArgs e)
 }
 ```
 
+![](https://i.loli.net/2020/09/06/jqvFZrVOcY9t7fh.png)
+
 Since it is a WebView-based control, MarkdownEditBox does not try to use traditional `MarkdownEditBox.Text` property to set the text, but takes the form of calling methods for configuration.
 
 For detailed information about related configurations, and how to use MarkdownEditBox in some common scenarios, you can refer to the sample project in the repository.

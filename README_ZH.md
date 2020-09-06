@@ -54,6 +54,8 @@ private async void MyEditor_ControlLoaded(object sender, EventArgs e)
 }
 ```
 
+![](https://i.loli.net/2020/09/06/jqvFZrVOcY9t7fh.png)
+
 由于自身是基于WebView的控件，所以 MarkdownEditBox 并没有尝试使用传统的 `MarkdownEditBox.Text` 之类的属性来设置文本，而是采取调用方法的形式进行配置。
 
 关于相关配置的详细信息，以及在一些常用场景下使用 MarkdownEditBox 的方法，可以参考仓库内的示例项目。
