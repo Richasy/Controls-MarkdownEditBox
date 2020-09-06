@@ -28,13 +28,13 @@
                                         <AppBarButton.Icon>
                                             <models:EditorIcon Symbol="Paste" FontSize="14"/>
                                         </AppBarButton.Icon>
-                                    </AppBarButton>-->
-                                    
+                                    </AppBarButton>
                                     <AppBarButton x:Name="SaveButton" Tag="editor-save">
                                         <AppBarButton.Icon>
                                             <models:EditorIcon Symbol="Save" FontSize="14"/>
                                         </AppBarButton.Icon>
-                                    </AppBarButton>
+                                    </AppBarButton>-->
+                                    
                                 </CommandBarFlyout.PrimaryCommands>
                             </CommandBarFlyout>
                         </Grid.Resources>

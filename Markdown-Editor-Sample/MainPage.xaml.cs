@@ -47,6 +47,9 @@ namespace Markdown_Editor_Sample
                 case "3":
                     MainFrame.Navigate(typeof(Pages.Scenario3));
                     break;
+                case "4":
+                    MainFrame.Navigate(typeof(Pages.Scenario4));
+                    break;
                 default:
                     break;
             }

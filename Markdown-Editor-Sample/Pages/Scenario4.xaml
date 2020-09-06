@@ -1,0 +1,31 @@
+﻿<ui:RichasyPage
+    xmlns:ui="using:Richasy.Controls.UWP.Models.UI"
+    x:Class="Markdown_Editor_Sample.Pages.Scenario4"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Markdown_Editor_Sample.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:editor="using:MarkdownEditBox.Editor"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="ControlPanel" Orientation="Horizontal" Padding="10" Visibility="Collapsed">
+            <ComboBox x:Name="ThemeComboBox" Header="Theme" SelectionChanged="ThemeComboBox_SelectionChanged">
+                <ComboBoxItem Content="Dark" Tag="dark" IsSelected="True"/>
+                <ComboBoxItem Content="Light" Tag="light"/>
+            </ComboBox>
+        </StackPanel>
+        <editor:MarkdownEditBox x:Name="MyEditor" Grid.Row="1"
+                                IsLoadingRingActive="True"
+                                LoadingRingForeground="{ThemeResource SystemColorControlAccentBrush}"
+                                ControlLoaded="MyEditor_ControlLoaded"
+                                EditorLoaded="MyEditor_EditorLoaded"
+                                ExcuteFailed="MyEditor_ExcuteFailed"
+                                />
+    </Grid>
+</ui:RichasyPage>

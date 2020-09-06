@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Richasy.Controls.MarkdownEditBox</id>
-    <version>1.0.2</version>
+    <version>1.0.4</version>
     <authors>Richasy</authors>
     <owners>Richasy</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -20,9 +20,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\Markdown-Edit-Box.dll" target="lib\uap10.0"/>
-    <file src="bin\Release\Markdown-Edit-Box.pri" target="lib\uap10.0"/>
-    <file src="bin\Release\Markdown-Edit-Box\Markdown-Edit-box.xr.xml" target="lib\uap10.0\Markdown-Edit-Box"/>
-    <file src="bin\Release\Markdown-Edit-Box\**\*" target="lib\uap10.0\Markdown-Edit-Box"/>
+    <file src="bin\Release\Markdown-Edit-Box.dll" target="lib\uap10.0.17763"/>
+    <file src="bin\Release\Markdown-Edit-Box.pri" target="lib\uap10.0.17763"/>
+    <file src="bin\Release\Markdown-Edit-Box\Markdown-Edit-box.xr.xml" target="lib\uap10.0.17763\Markdown-Edit-Box"/>
+    <file src="bin\Release\Markdown-Edit-Box\**\*" target="lib\uap10.0.17763\Markdown-Edit-Box"/>
   </files>
 </package>

@@ -60,15 +60,15 @@ namespace MarkdownEditBox.Editor
                         break;
                     case WebScriptNotifyType.ExcuteActionSuccess:
                     case WebScriptNotifyType.DefineThemeSuccess:
-                        ExcuteSuccess.Invoke(this, new EditorExcuteSuccessEventArgs(notify.Key, notify.Value));
+                        ExcuteSuccess?.Invoke(this, new EditorExcuteSuccessEventArgs(notify.Key, notify.Value));
                         break;
                     case WebScriptNotifyType.ExcuteActionFailed:
                     case WebScriptNotifyType.DefineThemeFailed:
                     case WebScriptNotifyType.SetThemeFailed:
-                        ExcuteFailed.Invoke(this, new EditorExcuteFailedEventArgs(notify.Value));
+                        ExcuteFailed?.Invoke(this, new EditorExcuteFailedEventArgs(notify.Value));
                         break;
                     case WebScriptNotifyType.Save:
-                        RequestSave.Invoke(this, EventArgs.Empty);
+                        RequestSave?.Invoke(this, EventArgs.Empty);
                         break;
                     case WebScriptNotifyType.ContentChanged:
                         ContentChanged?.Invoke(this, EventArgs.Empty);
@@ -138,6 +138,8 @@ namespace MarkdownEditBox.Editor
                         }
                         _contextMenuFlyout.SecondaryCommands.Add(new AppBarSeparator());
                     }
+                    if (_contextMenuFlyout.SecondaryCommands.Last() is AppBarSeparator)
+                        _contextMenuFlyout.SecondaryCommands.RemoveAt(_contextMenuFlyout.SecondaryCommands.Count - 1);
                     foreach (var btn in _contextMenuFlyout.PrimaryCommands.OfType<AppBarButton>())
                     {
                         btn.Click -= ContextMenuButton_Click;

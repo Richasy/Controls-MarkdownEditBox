@@ -17,6 +17,7 @@
                 <NavigationViewItem Content="Scenario1 - Basic use" Tag="1" Icon="OpenFile" IsSelected="True"/>
                 <NavigationViewItem Content="Scenario2 - Change properties" Tag="2" Icon="Repair"/>
                 <NavigationViewItem Content="Scenario3 - Change display mode" Tag="3" Icon="View"/>
+                <NavigationViewItem Content="Scenario4 - Change editor theme" Tag="4" Icon="Highlight"/>
             </NavigationView.MenuItems>
             <NavigationView.Content>
                 <Frame x:Name="MainFrame"/>

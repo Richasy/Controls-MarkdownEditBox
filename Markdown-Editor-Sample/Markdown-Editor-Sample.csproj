@@ -132,6 +132,9 @@
     <Compile Include="Pages\Scenario3.xaml.cs">
       <DependentUpon>Scenario3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Scenario4.xaml.cs">
+      <DependentUpon>Scenario4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +174,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Scenario4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
@@ -187,13 +194,19 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\test.md" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Markdown-Edit-Box\Markdown-Edit-Box.csproj">
       <Project>{222c4468-7a38-4155-a101-3f39742d3e39}</Project>
       <Name>Markdown-Edit-Box</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\test.md" />
+    <Content Include="Assets\light.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\dark.json" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
