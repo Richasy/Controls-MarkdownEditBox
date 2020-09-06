@@ -2,11 +2,15 @@
 
 [![Nuget](https://img.shields.io/nuget/v/Richasy.Controls.MarkdownEditBox)](https://www.nuget.org/packages/Richasy.Controls.MarkdownEditBox/)
 
+[English](.\README.md)
+
 ## 简介
 
 该控件的核心编辑器基于 [monaco-editor](https://microsoft.github.io/monaco-editor/)，markdown语法解析基于 [markdown-it](https://github.com/markdown-it/markdown-it)，基于 [Vue](https://vuejs.org/) 将这二者组织起来，然后在 UWP 中使用 WebView 呈现。
 
 所以它不是轻量级的 Native 编辑器，相反，它很重，但功能还挺齐全。
+
+由于是特化的Markdown编辑器，所以对moanco-editor进行了一些定制化操作，修改后的编辑器项目请查看：[Markdown-Editor-Vue](https://github.com/Richasy/Markdown-Editor-Vue)
 
 ***该控件的最低系统版本需求为 Windows10 ver 1809***
 

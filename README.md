@@ -2,11 +2,15 @@
 
 [![Nuget](https://img.shields.io/nuget/v/Richasy.Controls.MarkdownEditBox)](https://www.nuget.org/packages/Richasy.Controls.MarkdownEditBox/)
 
+[中文](.\README_ZH.md)
+
 ## Introduction
 
 The core editor of the control is based on [monaco-editor](https://microsoft.github.io/monaco-editor/), Markdown syntax analysis is based on [markdown-it](https://github.com/markdown-it/markdown-it)，Organize the two based on [Vue](https://vuejs.org/), and then use WebView to present them in UWP.
 
 So it is not a lightweight Native editor, on the contrary, it is very heavy, but it has quite complete functions.
+
+Since it is a specialized Markdown editor, some customized operations have been performed on moanco-editor. Please check the revised editor project: [Markdown-Editor-Vue](https://github.com/Richasy/Markdown-Editor-Vue)
 
 ***The minimum system version requirement of this control is Windows10 ver 1809***
 
