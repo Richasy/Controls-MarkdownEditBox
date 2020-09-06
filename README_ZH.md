@@ -2,7 +2,7 @@
 
 [![Nuget](https://img.shields.io/nuget/v/Richasy.Controls.MarkdownEditBox)](https://www.nuget.org/packages/Richasy.Controls.MarkdownEditBox/)
 
-[English](.\README.md)
+[English](README.md)
 
 ## 简介
 
