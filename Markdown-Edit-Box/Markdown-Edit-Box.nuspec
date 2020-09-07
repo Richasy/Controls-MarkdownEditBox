@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Richasy.Controls.MarkdownEditBox</id>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <authors>Richasy</authors>
     <owners>Richasy</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/Richasy/Controls-MarkdownEditBox</projectUrl>
     <iconUrl>https://i.loli.net/2020/09/05/LUIGZ3yHRfqgeES.png</iconUrl>
     <description>Markdown editor based on monaco-editor and WebView</description>
-    <releaseNotes>Remove copy, cut, paste buttons</releaseNotes>
+    <releaseNotes>Change EditorLanguageOptions to EditorLocaleOptions</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>Richasy uwp markdown editor monaco</tags>
     <dependencies>
