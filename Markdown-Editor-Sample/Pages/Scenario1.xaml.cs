@@ -25,9 +25,9 @@ namespace Markdown_Editor_Sample.Pages
         {
             var displayOptions = DisplayOptions.CreateOptions();
             var editorOptions = EditorOptions.CreateOptions();
-            var languageOptions = await EditorLanguageOptions.GetDefaultEnOptionsAsync();
+            var localeOptions = await EditorLocaleOptions.GetDefaultEnOptionsAsync();
             editorOptions.Theme = "";
-            await MyEditor.Initialize("# Hello Markdown!", displayOptions, editorOptions, "", languageOptions);
+            await MyEditor.Initialize("# Hello Markdown!", displayOptions, editorOptions, "", localeOptions);
             var cssFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/acrmd.css"));
             string css = await FileIO.ReadTextAsync(cssFile);
             await MyEditor.SetPreviewStyle(css);

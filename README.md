@@ -49,10 +49,10 @@ private async void MyEditor_ControlLoaded(object sender, EventArgs e)
 {
     var displayOptions = DisplayOptions.CreateOptions();
     var editorOptions = EditorOptions.CreateOptions();
-    var languageOptions = await EditorLanguageOptions.GetDefaultEnOptionsAsync();
+    var localeOptions = await EditorLocaleOptions.GetDefaultEnOptionsAsync();
     editorOptions.Theme = "";
-    await MyEditor.Initialize("# Hello Markdown!", displayOptions, editorOptions, "", languageOptions);
-    var cssFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("你的自定义CSS文件路径（需要在项目内）"));
+    await MyEditor.Initialize("# Hello Markdown!", displayOptions, editorOptions, "", localeOptions);
+    var cssFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("Your custom css file path (need in the project)"));
     string css = await FileIO.ReadTextAsync(cssFile);
     await MyEditor.SetPreviewStyle(css);
 }

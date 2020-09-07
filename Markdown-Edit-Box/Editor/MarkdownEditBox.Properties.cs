@@ -55,7 +55,7 @@ namespace MarkdownEditBox.Editor
         /// <summary>
         /// Current language configuration
         /// </summary>
-        public EditorLanguageOptions CurrentLanguageOptions { get; private set; }
+        public EditorLocaleOptions CurrentLanguageOptions { get; private set; }
 
         public EditBoxDisplayMode CurrentDisplayMode { get; set; }
 

@@ -141,7 +141,7 @@
     <Compile Include="Models\DisplayOptions.cs" />
     <Compile Include="Models\EditorAction.cs" />
     <Compile Include="Models\EditorIcon.cs" />
-    <Compile Include="Models\EditorLanguageOptions.cs" />
+    <Compile Include="Models\EditorLocaleOptions.cs" />
     <Compile Include="Models\EditorOptions.cs" />
     <Compile Include="Models\StaticExtension.cs" />
     <Compile Include="Models\WebScriptPackage.cs" />

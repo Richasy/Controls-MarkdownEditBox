@@ -36,11 +36,11 @@ namespace Markdown_Editor_Sample.Pages
             var displayOptions = DisplayOptions.CreateOptions(EditBoxDisplayMode.Editor);
             var editorOptions = EditorOptions.CreateOptions();
             editorOptions.FontFamily = "Microsoft YaHei UI";
-            var languageOptions = await EditorLanguageOptions.GetDefaultEnOptionsAsync();
+            var localeOptions = await EditorLocaleOptions.GetDefaultEnOptionsAsync();
             editorOptions.Theme = "none";
             var mdFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/test.md"));
             string md = await FileIO.ReadTextAsync(mdFile);
-            await MyEditor.Initialize(md, displayOptions, editorOptions, "", languageOptions);
+            await MyEditor.Initialize(md, displayOptions, editorOptions, "", localeOptions);
             ControlPanel.Visibility = Visibility.Visible;
         }
 

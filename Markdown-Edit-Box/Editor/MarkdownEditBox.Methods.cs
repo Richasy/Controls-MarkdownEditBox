@@ -24,7 +24,7 @@ namespace MarkdownEditBox.Editor
         /// <param name="themeData">Initialized theme data (JSON)</param>
         /// <param name="languages">Language configuration items passed in during initialization</param>
         /// <returns></returns>
-        public async Task Initialize(string markdown, DisplayOptions displayOptions, EditorOptions editorOptions, string themeData = "", EditorLanguageOptions languages = null)
+        public async Task Initialize(string markdown, DisplayOptions displayOptions, EditorOptions editorOptions, string themeData = "", EditorLocaleOptions languages = null)
         {
             if (displayOptions == null || editorOptions == null)
             {
@@ -60,7 +60,7 @@ namespace MarkdownEditBox.Editor
         /// Update language configuration items
         /// </summary>
         /// <param name="options">Language configuration</param>
-        public void UpdateLanguageOptions(EditorLanguageOptions options)
+        public void UpdateLanguageOptions(EditorLocaleOptions options)
         {
             if (_contextMenuFlyout == null)
                 throw new KeyNotFoundException("No popup menu item found");
