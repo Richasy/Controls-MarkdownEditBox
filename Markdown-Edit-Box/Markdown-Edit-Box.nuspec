@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/Richasy/Controls-MarkdownEditBox</projectUrl>
     <iconUrl>https://i.loli.net/2020/09/05/LUIGZ3yHRfqgeES.png</iconUrl>
     <description>Markdown editor based on monaco-editor and WebView</description>
-    <releaseNotes>Change EditorLanguageOptions to EditorLocaleOptions</releaseNotes>
+    <releaseNotes>Change UpdateLangugageOptions to UpdateLocaleOptions</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>Richasy uwp markdown editor monaco</tags>
     <dependencies>
