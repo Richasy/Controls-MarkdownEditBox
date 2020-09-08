@@ -1,8 +1,18 @@
+<p align="center">
+    <img src="https://i.loli.net/2020/09/05/LUIGZ3yHRfqgeES.png" align="center" height="80"/>
+</p>
+
+<div align="center">
+    
 # MarkdownEditBox
 
 [![Nuget](https://img.shields.io/nuget/v/Richasy.Controls.MarkdownEditBox)](https://www.nuget.org/packages/Richasy.Controls.MarkdownEditBox/)
 
-[中文](README_ZH.md)
+[Wiki](https://github.com/Richasy/Controls-MarkdownEditBox/wiki) | [中文说明](README_ZH.md)
+
+`MarkdownEditBox` is a Markdown editor based on monaco-editor
+
+</div>
 
 ## Introduction
 
