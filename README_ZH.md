@@ -1,16 +1,26 @@
+<p align="center">
+    <img src="https://i.loli.net/2020/09/05/LUIGZ3yHRfqgeES.png" align="center" height="80"/>
+</p>
+
+<div align="center">
+    
 # MarkdownEditBox
 
 [![Nuget](https://img.shields.io/nuget/v/Richasy.Controls.MarkdownEditBox)](https://www.nuget.org/packages/Richasy.Controls.MarkdownEditBox/)
 
-[English](README.md)
+[Wiki](https://github.com/Richasy/Controls-MarkdownEditBox/wiki) | [English doc](README_ZH.md)
+
+`MarkdownEditBox` 是一个基于 monaco-editor 的 Markdown 编辑器
+
+</div>
 
 ## 简介
 
 该控件的核心编辑器基于 [monaco-editor](https://microsoft.github.io/monaco-editor/)，markdown语法解析基于 [markdown-it](https://github.com/markdown-it/markdown-it)，基于 [Vue](https://vuejs.org/) 将这二者组织起来，然后在 UWP 中使用 WebView 呈现。
 
-所以它不是轻量级的 Native 编辑器，相反，它很重，但功能还挺齐全。
+所以它不是轻量级的原生编辑器，相反，它很重，但功能还挺齐全。
 
-由于是特化的Markdown编辑器，所以对moanco-editor进行了一些定制化操作，修改后的编辑器项目请查看：[Markdown-Editor-Vue](https://github.com/Richasy/Markdown-Editor-Vue)
+由于是特化的 Markdown 编辑器，所以我对 moanco-editor 进行了一些定制化操作，修改后的编辑器项目请查看：[Markdown-Editor-Vue](https://github.com/Richasy/Markdown-Editor-Vue)
 
 ***该控件的最低系统版本需求为 Windows10 ver 1809***
 
@@ -66,7 +76,7 @@ private async void MyEditor_ControlLoaded(object sender, EventArgs e)
 
 ## 已知问题
 
-1. 内存占用很高，运行时占用约120MB
+1. 内存占用很高，运行时占用约 120MB
 2. 快速切换应用时，使用输入法输入文本可能有乱码问题 (Chakra内核问题)
 3. 选中文本后，初次使用输入法输入文本无效 (Chakra内核问题)
 4. 在 `Split` 模式下，调整区域占比会有明显的卡顿 (Chakra内核问题)
