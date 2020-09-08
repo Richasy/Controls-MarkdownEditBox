@@ -31,7 +31,7 @@ namespace MarkdownEditBox.Editor
                 throw new ArgumentNullException("The incoming configuration cannot be null");
             }
             if (languages != null)
-                CurrentLanguageOptions = languages;
+                CurrentLocaleOptions = languages;
             markdown = GetSafeMarkdownString(markdown);
             await UpdateDisplayAsync(displayOptions);
 

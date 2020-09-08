@@ -53,9 +53,9 @@ namespace MarkdownEditBox.Editor
             DependencyProperty.Register("LoadingRingVisibility", typeof(Visibility), typeof(MarkdownEditBox), new PropertyMetadata(Visibility.Visible));
 
         /// <summary>
-        /// Current language configuration
+        /// Current locale configuration
         /// </summary>
-        public EditorLocaleOptions CurrentLanguageOptions { get; private set; }
+        public EditorLocaleOptions CurrentLocaleOptions { get; private set; }
 
         public EditBoxDisplayMode CurrentDisplayMode { get; set; }
 

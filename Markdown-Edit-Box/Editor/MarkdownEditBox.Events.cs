@@ -147,8 +147,8 @@ namespace MarkdownEditBox.Editor
                     }
 
                     // Change menu display language
-                    if (CurrentLanguageOptions != null)
-                        UpdateLocaleOptions(CurrentLanguageOptions);
+                    if (CurrentLocaleOptions != null)
+                        UpdateLocaleOptions(CurrentLocaleOptions);
                 }
             }
             EditorLoaded -= Initialize_EditorLoaded;

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Richasy.Controls.MarkdownEditBox</id>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <authors>Richasy</authors>
     <owners>Richasy</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/Richasy/Controls-MarkdownEditBox</projectUrl>
     <iconUrl>https://i.loli.net/2020/09/05/LUIGZ3yHRfqgeES.png</iconUrl>
     <description>Markdown editor based on monaco-editor and WebView</description>
-    <releaseNotes>Change UpdateLangugageOptions to UpdateLocaleOptions</releaseNotes>
+    <releaseNotes>Change method and property name about locale</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>Richasy uwp markdown editor monaco</tags>
     <dependencies>
