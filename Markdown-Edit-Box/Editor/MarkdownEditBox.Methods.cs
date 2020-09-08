@@ -57,10 +57,10 @@ namespace MarkdownEditBox.Editor
         }
 
         /// <summary>
-        /// Update language configuration items
+        /// Update locale configuration items
         /// </summary>
         /// <param name="options">Language configuration</param>
-        public void UpdateLanguageOptions(EditorLocaleOptions options)
+        public void UpdateLocaleOptions(EditorLocaleOptions options)
         {
             if (_contextMenuFlyout == null)
                 throw new KeyNotFoundException("No popup menu item found");

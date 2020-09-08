@@ -148,7 +148,7 @@ namespace MarkdownEditBox.Editor
 
                     // Change menu display language
                     if (CurrentLanguageOptions != null)
-                        UpdateLanguageOptions(CurrentLanguageOptions);
+                        UpdateLocaleOptions(CurrentLanguageOptions);
                 }
             }
             EditorLoaded -= Initialize_EditorLoaded;
